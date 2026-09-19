@@ -1,0 +1,108 @@
+@font-face {
+    font-family: 'Ubuntu Sans';
+    font-style: normal;
+    src: url('fonts/UbuntuSans-VariableFont_wdth,wght.ttf');
+}
+
+@font-face {
+    font-family: 'Ubuntu Sans';
+    font-style: italic;
+    src: url('fonts/UbuntuSans-Italic-VariableFont_wdth,wght.ttf');
+}
+
+@font-face {
+    font-family: 'Lexend';
+    font-style: normal;
+    src: url('fonts/Lexend-VariableFont_wght.ttf');
+}
+
+html {
+    background-color: #1e1f22;
+}
+
+body {
+    align-items: center;
+    color: white;
+    margin: 1.5em auto;
+    width: clamp(480px, 60%, 1000px);
+}
+
+img {
+    width: 16em;
+}
+
+code {
+    color: #75d38f;
+}
+.comment {
+    color: #abacaf;
+}
+
+h1 {
+    font-family: Lexend;
+    font-weight: bold;
+    font-size: 80px;
+    color: white;
+    -webkit-text-stroke: 16px black;
+    paint-order: stroke fill; /*THIS PROPERTY MUST BE USED FOR MANY FONTS OTHERWISE YKNOW*/
+    text-shadow: black 14px 14px 7px;
+    margin: 0;
+    margin-bottom: .2em;
+}
+
+p, ol {
+    font-family: "Ubuntu Sans";
+    font-stretch: normal;
+    font-weight: bold;
+    font-size: 2em;
+    line-height: 1.5em;
+
+    color: white;
+    -webkit-text-stroke: 2px black;
+    paint-order: stroke fill; /*THIS PROPERTY MUST BE USED FOR MANY FONTS OTHERWISE YKNOW*/
+    text-shadow: black 5px 5px 5px;
+    margin: .5em 0;
+}
+
+.info-blob {
+    color: white;
+    background-color: rgb(70 70 147 / 0.2);
+    display: inline-block;
+    font-family: "Ubuntu Sans";
+    font-stretch: condensed;
+    font-weight: bold;
+    font-size: 2em;
+
+    border: none;
+    border-radius: 24px;
+    padding: 0.3em .5em;
+    margin: .5rem 0;
+    line-height: 1.25em;
+    text-shadow: rgb(0 0 0 / 0.35) 8px 8px 5px;
+}
+
+.info-blob::before {
+    content: "ⓘ ";
+    -webkit-text-stroke: initial;
+    color: #498dff;
+}
+
+.webkit-text-stroke {
+    font-size: 4em;
+    font-weight: 1000;
+    font-stretch: normal;
+    -webkit-text-stroke: 5px black;
+}
+
+.lexend {
+    font-family: "Lexend";
+}
+
+.paint-order-fix {
+    paint-order: stroke fill;
+}
+
+.stroke-size-compensation {
+    -webkit-text-stroke: 10px black;
+    font-weight: normal;
+}
