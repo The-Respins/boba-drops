@@ -16,6 +16,10 @@
     src: url('fonts/Lexend-VariableFont_wght.ttf');
 }
 
+:root {
+    --on-background-light: rgb(43 49 67 / 0.75)
+}
+
 html {
     background-color: #1e1f22;
 }
@@ -27,9 +31,31 @@ body {
     width: clamp(480px, 60%, 1000px);
 }
 
-img {
-    width: 16em;
+footer ul li img {
+    width: 1em;
 }
+footer ul li {
+    display: inline-flex;
+    vertical-align: center;
+    font-size: 1.5em;
+}
+footer {
+    text-align: center;
+    align-items: center;
+    margin: 3em auto;
+    padding: 1.5em;
+    border: none;
+    border-radius: 24px;
+    background-color: var(--on-background-light);
+}
+footer ul {
+    margin: .5rem;
+    margin-bottom: 0;
+}
+footer div {
+    margin: .5rem;
+}
+
 
 code {
     color: #75d38f;
@@ -50,7 +76,7 @@ h1 {
     margin-bottom: .2em;
 }
 
-p, ol {
+p, ol, ul {
     font-family: "Ubuntu Sans";
     font-stretch: normal;
     font-weight: bold;
@@ -66,7 +92,7 @@ p, ol {
 
 .info-blob {
     color: white;
-    background-color: rgb(70 70 147 / 0.2);
+    background-color: var(--on-background-light);
     display: inline-block;
     font-family: "Ubuntu Sans";
     font-stretch: condensed;

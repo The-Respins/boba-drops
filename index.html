@@ -4,43 +4,55 @@
     <meta charset="UTF-8">
     <title>Boba Drops</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="img/respin.svg">
 </head>
 <body>
+<main>
+    <article>
+        <h1>Text Outlines</h1>
 
-<h1>Text Outlines</h1>
+        <p>The current way of adding text stroke outlines with CSS is through a webkit vendor attribute. The attribute itself seems quite straightforward at first glance, you just add <code>-webkit-text-stroke: [size] [color];</code>  easy right? Well, not quite. When using this alone:</p>
 
-<p>The current way of adding text stroke outlines with CSS is through a webkit vendor attribute. The attribute itself seems quite straighforward at first glance, you just add <code>-webkit-text-stroke: [size] [color];</code>  easy right? Well, not quite. When using this alone:</p>
+        <div class="info-blob webkit-text-stroke">Depending on the font..<br><span class="lexend">you may get some unforeseen consequences...</span></div>
 
-<div class="info-blob webkit-text-stroke">Depending on the font..<br><span class="lexend">you may get some unforeseen consequnces...</span></div>
+        <p>Pretty annoying, right? Take a look at the text, you'll notice that the first font (Ubuntu Sans) renders just fine, but the second one (Lexend) has overlapping strokes. This is one of the limitations of this method.</p>
 
-<p>Pretty annoying, right? Take a look at the text, you'll notice that the first font (Ubuntu Sans) renders just fine, but the second one (Lexend) has overlapping strokes. This is one of the limitations of this method.</p>
+        <p>To get around this, we must add <code>paint-order: stroke fill;</code> This draws the stroke, then covers it with the fill color, hiding any overlapping strokes. It looks like this: </p>
 
-<p>To get around this, we must add <code>paint-order: stroke fill;</code> This draws the stroke, then covers it with the fill color, hiding any overlapping strokes. It looks like this: </p>
+        <div class="info-blob webkit-text-stroke paint-order-fix">Ubuntu Sans<br><span class="lexend">Lexend</span></div>
 
-<div class="info-blob webkit-text-stroke paint-order-fix">Ubuntu Sans<br><span class="lexend">Lexend</span></div>
+        <p>This presents a new issue: Usually the stroke covers some of the fill in the text, but here the fill goes on top, covering the stroke. So to achieve the equivalent normal stroke, we must increase the stroke size, and possibly even decrease font size to compensate. Here's an example: </p>
 
-<p>This presents a new issue: Usually the stroke covers some of the fill in the text, but here the fill goes on top, covering the stroke. So to achieve the equivalent normal stroke, we must increase the stroke size, and possibly even decrease font size to compensate. Here's an example: </p>
+        <div class="info-blob webkit-text-stroke paint-order-fix stroke-size-compensation">Ubuntu Sans<br><span class="lexend">Lexend</span></div>
 
-<div class="info-blob webkit-text-stroke paint-order-fix stroke-size-compensation">Ubuntu Sans<br><span class="lexend">Lexend</span></div>
-
-<p>Here's what we started with:</p>
+        <p>Here's what we started with:</p>
         <ol>
-            <code>
-                <li>-webkit-text-stroke: 5px black;</li>
-                <li>paint-order: fill stroke;<span class="comment"> /*default paint order for comparison*/</span></li>
-                <li>font-weight: 1000;<span class="comment"> /*(highest bold value)*/</span></li>
-            </code>
+            <li><code>-webkit-text-stroke: 5px black;</code></li>
+            <li><code>paint-order: fill stroke;<span class="comment"> /*default paint order for comparison*/</span></code></li>
+            <li><code>font-weight: 1000;<span class="comment"> /*(highest bold value)*/</span></code></li>
         </ol>
-    <p>And here's where we ended up:</p>
+        <p>And here's where we ended up:</p>
         <ol>
-            <code>
-
-                <li>-webkit-text-stroke: 10px black;</li>
-                <li>paint-order: stroke fill;</li>
-                <li>font-weight: normal;</li>
-            </code>
+            <li><code>-webkit-text-stroke: 10px black;</code></li>
+            <li><code>paint-order: stroke fill;</code></li>
+            <li><code>font-weight: normal;</code></li>
         </ol>
-<br><br><br>
+    </article>
+</main>
+
+<footer>
+    <a href="https://github.com/The-Respins/boba-drops">
+        <ul>
+            <li><img src="img/respin.svg" alt=""></li>
+            <li>The Respins</li>
+            <li><img src="img/github-logo-white.svg" alt="Github"></li>
+        </ul>
+    </a>
+    <div>© 2026 The-Respins</div>
+</footer>
+
+
+
 
 </body>
 </html>
